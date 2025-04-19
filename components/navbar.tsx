@@ -121,7 +121,7 @@ const Navbar = () => {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[240px] p-0">
-                <nav className="flex flex-col gap-1 p-4">
+                <nav className="flex flex-col gap-1 p-4 ">
                   <NavItems />
                 </nav>
               </SheetContent>
