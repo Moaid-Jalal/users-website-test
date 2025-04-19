@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 
-const API_BASE_URL = "http://localhost:4000";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 
 export class ApiError extends Error {
     data: any;
