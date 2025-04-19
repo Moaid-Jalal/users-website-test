@@ -83,7 +83,7 @@ export default function ContactPage() {
                 <MapPin className="h-6 w-6" />
                 <div>
                   <CardTitle>Visit Us</CardTitle>
-                  <CardDescription>{data.contact_info.address}</CardDescription>
+                  <CardDescription>{data?.contact_info?.address}</CardDescription>
                 </div>
               </div>
             </CardHeader>
@@ -95,7 +95,7 @@ export default function ContactPage() {
                 <Phone className="h-6 w-6" />
                 <div>
                   <CardTitle>Call Us</CardTitle>
-                  <CardDescription>{data.contact_info.phone}</CardDescription>
+                  <CardDescription>{data?.contact_info?.phone}</CardDescription>
                 </div>
               </div>
             </CardHeader>
@@ -107,7 +107,7 @@ export default function ContactPage() {
                 <Mail className="h-6 w-6" />
                 <div>
                   <CardTitle>Email Us</CardTitle>
-                  <CardDescription>{data.contact_info.email}</CardDescription>
+                  <CardDescription>{data?.contact_info?.email}</CardDescription>
                 </div>
               </div>
             </CardHeader>
