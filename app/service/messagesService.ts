@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api";
 
 export class ApiError extends Error {
     data: any;
@@ -15,7 +15,7 @@ export class ApiError extends Error {
 
 export const messagesService = {
     async sendMessage(data: any) {
-        const res = await fetch(`${API_BASE_URL}/api/messages/send`, {
+        const res = await fetch(`${API_BASE_URL}/messages/send`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

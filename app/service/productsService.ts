@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api";
 
 export class ApiError extends Error {
     data: any;
@@ -27,7 +27,7 @@ export const productsService = {
         };
 
         const { data, error, isLoading } = useSWR(
-        `${API_BASE_URL}/api/projects?offset=${offset}`,
+        `${API_BASE_URL}/projects?offset=${offset}`,
         fetcher,
         {
             revalidateOnFocus: false,
@@ -49,7 +49,7 @@ export const productsService = {
         };
 
         const { data, error, isLoading } = useSWR(
-            `${API_BASE_URL}/api/projects/${id}`,
+            `${API_BASE_URL}/projects/${id}`,
             fetcher,
             {
                 revalidateOnFocus: false,
