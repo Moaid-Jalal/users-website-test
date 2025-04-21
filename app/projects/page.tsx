@@ -1,35 +1,26 @@
 "use client";
 
-import useSWR from 'swr';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building2 } from "lucide-react";
-import { useState, useEffect } from "react";
 import { Spinner } from "@/components/ui/spinner";
 import { useRouter } from "next/navigation"
 import { productsService } from "@/app/service/productsService";
-import { Project } from "@/types/projectType";
 import Link from "next/link";
 import Image from 'next/image';
 
 
 export default function ProjectsPage() {
-  const [offset, setOffset] = useState(0);
-  const [hasMore, setHasMore] = useState(true);
-  const router = useRouter()
+  const router = useRouter();
 
-  const { data: projects, error, isLoading } = productsService.useProjects(offset);
-
-  useEffect(() => {
-    if (projects && projects.length < 10) {
-      setHasMore(false);
-    }
-  }, [projects]);
-
-  const loadMore = () => {
-    if (!hasMore || isLoading) return;
-    setOffset((prev) => prev + 10);
-  };
+  const {
+    projects,
+    error,
+    isLoading,
+    isValidating,
+    loadMore,
+    hasMore,
+  } = productsService.useInfiniteProjects();
 
 
   if (isLoading && (!projects || projects.length === 0)) {
@@ -49,7 +40,7 @@ export default function ProjectsPage() {
       <div className="flex  justify-center items-center h-full">
         <div className="container mx-auto py-24 px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <div className="text-red-500 font-semibold mb-4">{error}</div>
+            <div className="text-red-500 font-semibold mb-4">something went wrong, try again later</div>
             <Button onClick={() => router}>Go Back home</Button>
           </div>
         </div>
@@ -68,7 +59,7 @@ export default function ProjectsPage() {
         {projects.map((project: any) => (
           <Card key={project.id} className="overflow-hidden">
             <div className="aspect-[16/9] relative">
-              
+
               <Image
                 src={project.images[0].url}
                 fill
@@ -107,7 +98,7 @@ export default function ProjectsPage() {
 
       {hasMore && (
         <div className="flex justify-center mt-8">
-          <Button onClick={loadMore} disabled={isLoading}>
+          <Button onClick={loadMore} disabled={isValidating}>
             {isLoading ? <Spinner /> : "Load More"}
           </Button>
         </div>

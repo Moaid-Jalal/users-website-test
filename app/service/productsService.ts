@@ -1,4 +1,5 @@
 import useSWR from 'swr';
+import useSWRInfinite from 'swr/infinite';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api";
 
@@ -17,26 +18,31 @@ export class ApiError extends Error {
 
 export const productsService = {
     // i want to put an id to the function
-    useProjects(offset: number) {
+    useInfiniteProjects() {
         const fetcher = async (url: string) => {
-            const res = await fetch(url, { credentials: 'include' });
-            if (!res.ok) {
-                throw new Error('Failed to fetch');
-            }
-            return res.json();
+        const res = await fetch(url, { credentials: 'include' });
+        if (!res.ok) throw new Error('Failed to fetch');
+        return res.json();
         };
-
-        const { data, error, isLoading } = useSWR(
-        `${API_BASE_URL}/projects?offset=${offset}`,
-        fetcher,
-        {
-            revalidateOnFocus: false,
-            revalidateOnReconnect: true,
-            fallbackData: [],
-        }
-        );
-
-        return { data, error, isLoading };
+    
+        const getKey = (pageIndex: number, previousPageData: any) => {
+        if (previousPageData && previousPageData.length < 10) return null; // لا يوجد بيانات أكثر
+        const offset = pageIndex * 10;
+        return `${API_BASE_URL}/projects?offset=${offset}`;
+        };
+    
+        const { data, error, size, setSize, isValidating } = useSWRInfinite(getKey, fetcher, {
+        revalidateOnFocus: false,
+        });
+    
+        return {
+        projects: data ? data.flat() : [],
+        error,
+        isLoading: !data && !error,
+        isValidating,
+        loadMore: () => setSize(size + 1),
+        hasMore: data ? data[data.length - 1]?.length === 10 : false,
+        };
     },
 
     useProject(id: string) {
