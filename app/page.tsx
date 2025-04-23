@@ -45,18 +45,18 @@ export default function Home() {
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Featured Projects</h2>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              Take a look at some of our most impressive construction projects that showcase our expertise and commitment to quality.
+              Take a look at some of our most impressive construction sectors that showcase our expertise and commitment to quality.
             </p>
           </div>
 
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20">
             <Link
-              href="/projects"
+              href="/our-sectors/categories"
               className="group flex items-center justify-center gap-3 rounded-lg border border-gray-200 bg-white hover:bg-opacity-90 p-8 shadow-md transition hover:shadow-lg"
             >
               <Building2 className="h-8 w-8 text-white group-hover:text-black transition" />
               <span className="text-xl font-semibold text-gray-900 transition">
-                Explore All Projects
+                Explore Our sectors
               </span>
               <ArrowRight className="ml-2 h-5 w-5 text-gray-400 group-hover:text-black transition" />
             </Link>

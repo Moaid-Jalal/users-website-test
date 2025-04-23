@@ -1,6 +1,6 @@
 "use client"
 
-import { productsService } from "@/app/service/productsService"
+import { projectsService } from "@/app/service/projectsService"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Project } from "@/types/projectType"
@@ -14,7 +14,7 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
   const router = useRouter()
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const { data: project, error, isLoading } = productsService.useProject(params.id);
+  const { data: project, error, isLoading } = projectsService.useProject(params.id);
 
 
   const goToPrevious = () => {
@@ -56,8 +56,9 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
       <div className="container mx-auto py-24 px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold">Project Not Found</h2>
-          <Button onClick={() => router.push("/projects")} className="mt-4">
-            Back to Projects
+          <Button onClick={() => router.back()} variant="ghost" className="mt-4">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back
           </Button>
         </div>
       </div>
@@ -67,12 +68,10 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
   return (
     <div className="container mx-auto py-24 px-4">
       <div className="max-w-4xl mx-auto">
-        <Link href="/projects">
-          <Button variant="ghost" className="mb-8">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Projects
-          </Button>
-        </Link>
+        <Button onClick={() => router.back()} variant="ghost" className="mb-8">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back
+        </Button>
 
         <div className="aspect-[16/9] relative mb-8 group">
 
@@ -131,7 +130,7 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
                     <Building2 className="h-4 w-4" />
                     Category
                   </CardTitle>
-                  <CardDescription className="text-xl">{project.category}</CardDescription>
+                  <CardDescription className="text-xl">{project.category.name}</CardDescription>
                 </CardHeader>
               </Card>
             </div>
