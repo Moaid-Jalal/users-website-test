@@ -105,6 +105,7 @@ const Navbar = () => {
               <Building2 className="h-6 w-6 text-primary" />
               <span className="ml-2 text-lg font-bold">ktygbm</span>
             </Link>
+
           </div>
           
           {/* Desktop Navigation */}
