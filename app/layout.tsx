@@ -22,8 +22,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider
+          attribute="class"
           defaultTheme="dark"
-          disableTransitionOnChange
+          enableSystem={false}
+          forcedTheme="dark"
         >
           <div className="min-h-screen flex flex-col">
             <Navbar />
