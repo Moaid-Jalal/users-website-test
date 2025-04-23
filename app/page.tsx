@@ -23,9 +23,9 @@ export default function Home() {
               We specialize in creating innovative construction solutions that transform visions into reality. With years of experience and dedication to excellence, we build more than just structures – we build futures.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Link href="/projects">
+              <Link href="/our-sectors/categories">
                 <Button size="lg">
-                  View Our Projects
+                  Explore Our sectors
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
