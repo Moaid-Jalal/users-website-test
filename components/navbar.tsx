@@ -7,7 +7,7 @@ import { Building2, Home, Phone, Users2, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import Image from 'next/image'
-import  logo from '@/images/logo.png'
+import  logo from '@/images/logo.jpg'
 
 const Navbar = () => {
   const pathname = usePathname()
@@ -99,7 +99,7 @@ const Navbar = () => {
   )
 
   return (
-    <nav className="border-b fixed w-full bg-background z-50">
+    <nav className="border-b fixed w-full bg-black z-50">
       <div className="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
         <div className="flex justify-between h-14">
           <div className="flex items-center overflow-hidden">
