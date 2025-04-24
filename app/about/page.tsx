@@ -16,9 +16,6 @@ const statIcons: Record<string, JSX.Element> = {
 export default function AboutPage() {
   const { data, error, isLoading } = aboutUsService.useAboutUs();
 
-  useEffect(() => {
-    console.log(data)
-}, [data])
 
   if (isLoading) {
     return (
