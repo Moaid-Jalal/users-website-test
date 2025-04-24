@@ -3,6 +3,7 @@
 import { projectsService } from "@/app/service/projectsService"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Spinner } from "@/components/ui/spinner"
 import { Project } from "@/types/projectType"
 import { ArrowLeft, MapPin, Calendar, Building2, ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 import Image from "next/image"
@@ -32,10 +33,12 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
 
   if (isLoading) {
     return (
-      <div className="container mx-auto py-24 px-4 text-center">
-        <div className="max-w-4xl mx-auto">
-          <div className="animate-pulse text-lg">Loading project...</div>
-        </div>
+      <div className="container mx-auto flex items-center justify-center min-h-screen">
+          <div className="max-w-4xl mx-auto">
+              <div className="flex justify-center items-center">
+                <Spinner />
+              </div>
+          </div>
       </div>
     )
   }
@@ -103,36 +106,31 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
 
         {project && (
           <>
-            <div className="grid gap-8 md:grid-cols-3 mb-12">
+            <div className="grid gap-8 md:grid-cols-2 mb-12">
               <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Calendar className="h-4 w-4" />
-                    Year
-                  </CardTitle>
-                  <CardDescription className="text-xl">{project.creation_date}</CardDescription>
-                </CardHeader>
+                {project.creation_date && (
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Calendar className="h-4 w-4" />
+                      Year
+                    </CardTitle>
+                    <CardDescription className="text-xl">{project.creation_date}</CardDescription>
+                  </CardHeader>
+                )}
               </Card>
 
               <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <MapPin className="h-4 w-4" />
-                    country
-                  </CardTitle>
-                  <CardDescription className="text-xl">{project.country}</CardDescription>
-                </CardHeader>
+                {project.country && (
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4" />
+                      country
+                    </CardTitle>
+                    <CardDescription className="text-xl">{project.country}</CardDescription>
+                  </CardHeader>
+                )}
               </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Building2 className="h-4 w-4" />
-                    Category
-                  </CardTitle>
-                  <CardDescription className="text-xl">{project.category.name}</CardDescription>
-                </CardHeader>
-              </Card>
             </div>
 
             <Card className="mb-12">

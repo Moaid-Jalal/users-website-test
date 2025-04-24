@@ -26,13 +26,13 @@ export default function CategoryProjectsPage({ params }: { params: { name: strin
 
 if (isLoading && (!projects || projects.length === 0)) {
     return (
-    <div className="container mx-auto flex items-center justify-center min-h-screen">
-        <div className="max-w-4xl mx-auto">
-            <div className="flex justify-center items-center">
-                <Spinner />
+        <div className="container mx-auto flex items-center justify-center min-h-screen">
+            <div className="max-w-4xl mx-auto">
+                <div className="flex justify-center items-center">
+                    <Spinner />
+                </div>
             </div>
         </div>
-    </div>
     );
 }
 
@@ -94,12 +94,14 @@ return (
 
             <CardHeader>
               <div className="flex items-center gap-x-4 mb-2 text-[13px]">
-                <span className="relative z-10 rounded-full bg-gray-50 px-4 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
-                  {project.creation_date}
-                </span>
+                {project.creation_date && (
+                    <span className="relative z-10 rounded-full bg-gray-50 px-4 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
+                        {project.creation_date}
+                    </span>
+                )}
               </div>
               <CardTitle>{project.title}</CardTitle>
-              <CardDescription>{project.country}</CardDescription>
+              <CardDescription>{project.short_description}</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">{project.description.slice(0, 20)}.......</p>

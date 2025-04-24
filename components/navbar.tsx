@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button'
 import { Building2, Home, Phone, Users2, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
+import Image from 'next/image'
+import  logo from '@/images/logo.png'
 
 const Navbar = () => {
   const pathname = usePathname()
@@ -102,8 +104,13 @@ const Navbar = () => {
         <div className="flex justify-between h-14">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <Building2 className="h-6 w-6 text-primary" />
-              <span className="ml-2 text-lg font-bold">ktygbm</span>
+            <Image
+              src={logo}
+              width={200}
+              height={200}
+              className='bg-inherit'
+              alt='k'
+            />
             </Link>
 
           </div>
