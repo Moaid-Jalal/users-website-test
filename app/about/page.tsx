@@ -97,7 +97,7 @@ export default function AboutPage() {
         <CardContent>
           <div className="aspect-[16/9] relative rounded-lg overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12618.390580854324!2d29.11156597573522!3d37.75258253230081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c73eed8affb283%3A0xe77f3b5c41637cb6!2sYeni%20As%20In%C5%9Faat%20Gayrimenkul!5e0!3m2!1sen!2sly!4v1745518634490!5m2!1sen!2sly"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.7999206997897!2d29.109371925454756!3d37.7478378719922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c73f6329fa9089%3A0xda1b2d93ce3b1e40!2sAsmal%C4%B1evler%20sitesi!5e0!3m2!1sen!2sly!4v1745588001097!5m2!1sen!2sly"
               width="100%"
               height="100%"
               style={{ border: 0 }}
