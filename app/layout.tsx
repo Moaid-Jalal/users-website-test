@@ -11,6 +11,11 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'KYT Group',
   description: 'Professional construction and engineering services',
+  icons: {
+    icon: '/websitelogo.jpg',
+    shortcut: '/websitelogo.jpg',
+    apple: '/websitelogo.jpg',
+  },
 };
 
 export default function RootLayout({

@@ -7,7 +7,7 @@ import { Building2, Home, Phone, Users2, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import Image from 'next/image'
-import  logo from '@/images/logo.jpg'
+import  logo from '@/public/logo.jpg'
 
 const Navbar = () => {
   const pathname = usePathname()
