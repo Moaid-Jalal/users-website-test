@@ -125,7 +125,7 @@ const Navbar = ({ currentLang } : NavbarProps) => {
         <div className="flex justify-between h-14">
           <div className="flex items-center overflow-hidden">
             <Link href="/" className="flex items-center">
-            <div className='w-[200px] overflow-hidden'>
+            <div className='w-[180px] overflow-hidden'>
               <Image
                 src={logo}
                 width={200}
