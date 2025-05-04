@@ -1040,14 +1040,14 @@ video {
 .w-\[100px\] {
   width: 100px;
 }
+.w-\[180px\] {
+  width: 180px;
+}
 .w-\[1px\] {
   width: 1px;
 }
 .w-\[240px\] {
   width: 240px;
-}
-.w-auto {
-  width: auto;
 }
 .w-full {
   width: 100%;
@@ -1058,15 +1058,6 @@ video {
 }
 .w-px {
   width: 1px;
-}
-.w-\[150px\] {
-  width: 150px;
-}
-.w-\[160px\] {
-  width: 160px;
-}
-.w-\[200px\] {
-  width: 200px;
 }
 .min-w-0 {
   min-width: 0px;

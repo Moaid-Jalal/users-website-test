@@ -27,20 +27,30 @@
       "static/chunks/main-app.js",
       "static/chunks/app/[lang]/page.js"
     ],
-    "/[lang]/contact/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/contact/page.js"
-    ],
-    "/[lang]/about/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/about/page.js"
-    ],
     "/[lang]/our-sectors/categories/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/[lang]/our-sectors/categories/page.js"
+    ],
+    "/[lang]/our-sectors/categories/[slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lang]/our-sectors/categories/[slug]/page.js"
+    ],
+    "/[lang]/our-sectors/categories/[slug]/projects/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lang]/our-sectors/categories/[slug]/projects/page.js"
+    ],
+    "/[lang]/our-sectors/categories/[slug]/projects/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lang]/our-sectors/categories/[slug]/projects/[id]/page.js"
+    ],
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
     ]
   }
 }
