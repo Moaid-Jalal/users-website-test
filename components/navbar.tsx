@@ -124,17 +124,17 @@ const Navbar = ({ currentLang } : NavbarProps) => {
       <div className="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
         <div className="flex justify-between h-14">
           <div className="flex items-center overflow-hidden">
-            <Link href="/" className="flex items-center">
-            <div className='w-[180px] overflow-hidden'>
-              <Image
-                src={logo}
-                width={200}
-                height={200}
-                className="object-contain"
-                alt='website logo'
-                priority
-              />
-            </div>
+            <Link href={`/${currentLang}`} className="flex items-center">
+              <div className='w-[180px] overflow-hidden'>
+                <Image
+                  src={logo}
+                  width={200}
+                  height={200}
+                  className="object-contain"
+                  alt='website logo'
+                  priority
+                />
+              </div>
             </Link>
           </div>
 
