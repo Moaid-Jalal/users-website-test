@@ -1,9 +1,8 @@
 import useSWR from 'swr';
-
+import { usePathname } from 'next/navigation';
 
 import { API_BASE_URL } from "@/app/config/apiUrl";
-import { Category } from "@/app/types/categories";
-
+import { Category } from "@/types/categories";
 
 export class ApiError extends Error {
     data: any;
@@ -19,7 +18,7 @@ export class ApiError extends Error {
 }
 
 export const categoriesService = {
-    useCategories() : {
+    useCategories(lang: string = "en"): {
         data: Category[] | undefined;
         error: Error | undefined;
         isLoading: boolean;
@@ -33,8 +32,8 @@ export const categoriesService = {
             return res.json();
         };
 
-        const { data, error, isLoading, mutate} = useSWR(
-            `${API_BASE_URL}/categories`,
+        const { data, error, isLoading, mutate } = useSWR(
+            `${API_BASE_URL}/categories?language_code=${lang}`,
             fetcher,
             {
                 revalidateOnFocus: false,

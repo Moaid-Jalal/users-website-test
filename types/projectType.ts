@@ -3,7 +3,8 @@ export interface Project {
     country : string,
     created_at : string,
     creation_date : string,
-    description : string,
+    extra_description: string,
+    short_description: string,
     id : string,
     images : [
         {
@@ -12,6 +13,5 @@ export interface Project {
             url : string,
         }
     ],
-    short_description: string, 
     title: string, 
 }

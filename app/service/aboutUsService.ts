@@ -16,7 +16,7 @@ export class ApiError extends Error {
 }
 
 export const aboutUsService = {
-    useAboutUs() {
+    useAboutUs(lang: string = "en") {
         const fetcher = async (url: string) => {
             const res = await fetch(url);
             if (!res.ok) {
@@ -26,7 +26,7 @@ export const aboutUsService = {
         };
 
         const { data, error, isLoading } = useSWR(
-            `${API_BASE_URL}/aboutus`,
+            `${API_BASE_URL}/aboutus?language_code=${lang}`,
             fetcher,
             {
                 revalidateOnFocus: false,

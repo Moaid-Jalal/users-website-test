@@ -19,7 +19,7 @@ export class ApiError extends Error {
 
 export const projectsService = {
     // i want to put an id to the function
-    useInfiniteProjects(categoryName: string) : {
+    useInfiniteProjects(categoryName: string, lang: string = "en") : {
         projects: Project[];
         error: ApiError | undefined;
         isLoading: boolean;
@@ -36,7 +36,7 @@ export const projectsService = {
         const getKey = (pageIndex: number, previousPageData: any) => {
             if (previousPageData && previousPageData.length < 10) return null; // لا يوجد بيانات أكثر
             const offset = pageIndex * 10;
-            return `${API_BASE_URL}/categories/${categoryName}/projects?offset=${offset}`;
+            return `${API_BASE_URL}/categories/${categoryName}/projects?language_code=${lang}&offset=${offset}`;
         };
 
         const { data, error, size, setSize, isValidating } = useSWRInfinite(getKey, fetcher, {
@@ -55,7 +55,7 @@ export const projectsService = {
         };
     },
 
-    useProject(id: string) {
+    useProject(id: string, lang: string = "en") {
         const fetcher = async (url: string) => {
             const res = await fetch(url, { credentials: 'include' });
             if (!res.ok) {
@@ -65,7 +65,7 @@ export const projectsService = {
         };
 
         const { data, error, isLoading } = useSWR(
-            `${API_BASE_URL}/projects/${id}`,
+            `${API_BASE_URL}/projects/${id}?language_code=${lang}`,
             fetcher,
             {
                 revalidateOnFocus: false,
