@@ -146,8 +146,8 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
             {/* Card for title and short_description */}
             <Card className="mb-6">
               <CardHeader>
-                <CardTitle className="text-3xl">{project.title}</CardTitle>
-                <CardDescription>{project.short_description}</CardDescription>
+                <CardTitle className="text-3xl">{project.translations[0].title}</CardTitle>
+                <CardDescription>{project.translations[0].short_description}</CardDescription>
               </CardHeader>
             </Card>
 
@@ -157,7 +157,7 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
                 <CardTitle>{dict?.extraDescription || "Details"}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">{project.extra_description}</p>
+                <p className="text-muted-foreground">{project.translations[0].extra_description}</p>
               </CardContent>
             </Card>
             {/* ...existing code for gallery if needed... */}
