@@ -25,7 +25,7 @@ export const categoriesService = {
         refetch: () => void;
     } {
         const fetcher = async (url: string) => {
-            const res = await fetch(url, { credentials: 'include' });
+            const res = await fetch(url);
             if (!res.ok) {
                 throw new Error('Failed to fetch');
             }
