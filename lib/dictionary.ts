@@ -11,7 +11,7 @@ export type Dictionary = {
       phone: string;
       email: string;
       quickLinks: string;
-      projects: string;
+      sectors: string;
       about: string;
       follow: string;
       copyright: string;
@@ -92,7 +92,7 @@ export const dictionaries: Record<string, Dictionary> = {
       phone: 'Phone: +90 552 55 666 90',
       email: 'Email: kytgbm@gmail.com',
       quickLinks: 'Quick Links',
-      projects: 'Projects',
+      sectors: 'Sectors',
       about: 'About Us',
       follow: 'Follow Us',
       copyright: '© 2025 KYT Group. All rights reserved.',
@@ -171,7 +171,7 @@ export const dictionaries: Record<string, Dictionary> = {
       phone: 'Telefon: +90 552 55 666 90',
       email: 'E-posta: kytgbm@gmail.com',
       quickLinks: 'Hızlı Bağlantılar',
-      projects: 'Projeler',
+      sectors: 'Sektörler',
       about: 'Hakkımızda',
       follow: 'Bizi Takip Edin',
       copyright: '© 2025 KYT Group. Tüm hakları saklıdır.',
@@ -250,7 +250,7 @@ export const dictionaries: Record<string, Dictionary> = {
       phone: 'Téléphone : +90 552 55 666 90',
       email: 'Email : kytgbm@gmail.com',
       quickLinks: 'Liens Rapides',
-      projects: 'Projets',
+      sectors: 'Secteurs',
       about: 'À Propos',
       follow: 'Suivez-nous',
       copyright: '© 2025 KYT Group. Tous droits réservés.',

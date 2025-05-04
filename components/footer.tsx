@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getDictionary } from '@/lib/dictionary'
 import { useEffect, useState } from 'react'
+import { useParams } from 'next/navigation'
 
 type DictType = {
   contactUs: string
@@ -12,15 +13,18 @@ type DictType = {
   phone: string
   email: string
   quickLinks: string
-  projects: string
+  sectors: string
   about: string
   follow: string
   copyright: string
 }
 
+interface FooterProps {
+  currentLang: string
+}
 
-const Footer = () => {
-  const currentLang = typeof window !== 'undefined' ? window.location.pathname.split('/')[1] : 'en'
+
+const Footer = ({ currentLang } : FooterProps) => {
   const { data } = aboutUsService.useAboutUs()
 
   const [dict, setDict] = useState<DictType>({
@@ -29,7 +33,7 @@ const Footer = () => {
     phone: "",
     email: "",
     quickLinks: "Quick Links",
-    projects: "Projects",
+    sectors: "Sectors",
     about: "About Us",
     follow: "Follow Us",
     copyright: "",
@@ -42,7 +46,7 @@ const Footer = () => {
       phone: d.footer.phone,
       email: d.footer.email,
       quickLinks: d.footer.quickLinks,
-      projects: d.footer.projects,
+      sectors: d.footer.sectors,
       about: d.footer.about,
       follow: d.footer.follow,
       copyright: d.footer.copyright,
@@ -62,9 +66,9 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">{dict.quickLinks}</h3>
             <ul className="space-y-2">
-              <li><Link href="/projects" className="hover:underline">{dict.projects}</Link></li>
-              <li><Link href="/about" className="hover:underline">{dict.about}</Link></li>
-              <li><Link href="/contact" className="hover:underline">{dict.contactUs}</Link></li>
+              <li><Link href={`/${currentLang}/our-sectors/categories`} className="hover:underline">{dict.sectors}</Link></li>
+              <li><Link href={`/${currentLang}/about`} className="hover:underline">{dict.about}</Link></li>
+              <li><Link href={`/${currentLang}/contact`} className="hover:underline">{dict.contactUs}</Link></li>
             </ul>
           </div>
           <div>

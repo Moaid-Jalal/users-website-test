@@ -5,10 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
-
-import { getDictionary } from '@/lib/dictionary';
 import { SUPPORTED_LANGUAGES } from '@/lib/i18n';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export async function generateStaticParams() {
   return SUPPORTED_LANGUAGES.map((lang) => ({ lang }));
@@ -48,7 +45,7 @@ export default async function LangLayout({
                             {children}
                             <Toaster />
                         </main>
-                        <Footer />
+                        <Footer currentLang={params.lang}/>
                     </div>
                 </ThemeProvider>
             </body>

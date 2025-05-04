@@ -83,7 +83,7 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
     <div className="container mx-auto py-24 px-4">
       <div className="max-w-4xl mx-auto">
         <Link href={`/${lang}/our-sectors/categories/${project.category.slug}/projects`}>
-            <Button onClick={() => router.back()} variant="ghost" className="mb-8">
+            <Button variant="ghost" className="mb-8">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 {dict?.back || "Back"}
             </Button>
