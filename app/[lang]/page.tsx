@@ -1,5 +1,15 @@
 import { Button } from "@/components/ui/button"
-import { Building2, ArrowRight, ShieldCheck, Lightbulb, Hammer } from "lucide-react"
+import { 
+  ArrowRight,
+  BadgeCheck,
+  Building2,
+  Globe,
+  Rocket,
+  Shield,
+  Sparkles,
+  TrendingUp,
+  Users 
+} from "lucide-react"
 import Link from "next/link"
 import { getDictionary } from '@/lib/dictionary';
 
@@ -71,42 +81,80 @@ export default async function Home({ params }: { params: { lang: string } }) {
       </div>
 
 
-      <div className="py-16 sm:py-20 border-t">
+      <div className="py-16 sm:py-24 border-t">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 dark:from-primary dark:to-blue-400">
               {dict.whyChooseUsTitle}
             </h2>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground max-w-xl mx-auto">
+            <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               {dict.whyChooseUsSubtitle}
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="flex flex-col items-center bg-white/5 dark:bg-muted p-6 rounded-xl shadow-md hover:shadow-lg transition group border border-primary/10">
-              <div className="flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-4 group-hover:scale-105 transition">
-                <Hammer className="h-8 w-8 text-primary" />
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Experience Card */}
+            <div className="relative overflow-hidden group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700">
+              <div className="absolute -right-6 -top-6 w-32 h-32 rounded-full bg-blue-100 dark:bg-blue-900/30 opacity-30 group-hover:opacity-50 transition-all duration-500"></div>
+              <div className="flex flex-col items-start">
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-900/20 mb-6 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-all duration-300">
+                  <TrendingUp className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+                  {dict.experience}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                  {dict.experienceText}
+                </p>
               </div>
-              <h3 className="text-lg font-semibold mb-1 text-foreground text-center">{dict.experience}</h3>
-              <p className="text-muted-foreground text-center text-sm">{dict.experienceText}</p>
             </div>
-            <div className="flex flex-col items-center bg-white/5 dark:bg-muted p-6 rounded-xl shadow-md hover:shadow-lg transition group border border-primary/10">
-              <div className="flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-4 group-hover:scale-105 transition">
-                <Lightbulb className="h-8 w-8 text-primary" />
+
+            {/* Innovation Card */}
+            <div className="relative overflow-hidden group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700">
+              <div className="absolute -right-6 -top-6 w-32 h-32 rounded-full bg-purple-100 dark:bg-purple-900/30 opacity-30 group-hover:opacity-50 transition-all duration-500"></div>
+              <div className="flex flex-col items-start">
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-900/20 mb-6 group-hover:bg-purple-100 dark:group-hover:bg-purple-900/30 transition-all duration-300">
+                  <Rocket className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+                  {dict.innovation}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                  {dict.innovationText}
+                </p>
               </div>
-              <h3 className="text-lg font-semibold mb-1 text-foreground text-center">{dict.innovation}</h3>
-              <p className="text-muted-foreground text-center text-sm">{dict.innovationText}</p>
             </div>
-            <div className="flex flex-col items-center bg-white/5 dark:bg-muted p-6 rounded-xl shadow-md hover:shadow-lg transition group border border-primary/10">
-              <div className="flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-4 group-hover:scale-105 transition">
-                <ShieldCheck className="h-8 w-8 text-primary" />
+
+            {/* Trust Card */}
+            <div className="relative overflow-hidden group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700">
+              <div className="absolute -right-6 -top-6 w-32 h-32 rounded-full bg-green-100 dark:bg-green-900/30 opacity-30 group-hover:opacity-50 transition-all duration-500"></div>
+              <div className="flex flex-col items-start">
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-green-50 dark:bg-green-900/20 mb-6 group-hover:bg-green-100 dark:group-hover:bg-green-900/30 transition-all duration-300">
+                  <BadgeCheck className="h-6 w-6 text-green-600 dark:text-green-400" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+                  {dict.trust}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                  {dict.trustText}
+                </p>
               </div>
-              <h3 className="text-lg font-semibold mb-1 text-foreground text-center">{dict.trust}</h3>
-              <p className="text-muted-foreground text-center text-sm">{dict.trustText}</p>
             </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <Link href={`/${params.lang}/about`}>
+              <Button 
+                size="lg"
+                className="relative overflow-hidden group bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 text-primary">
+                {dict.aboutPageTitle}
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
+
     </div>
   )
 }

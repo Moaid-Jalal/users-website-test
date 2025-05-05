@@ -78,16 +78,16 @@ export default function CategoryProjectsPage({ params }: { params: { slug: strin
 
     return (
         <div className="container mx-auto py-24 px-4">
-            <div className="max-w-2xl mx-auto text-center mb-16">
-                <Button
-                    onClick={() => router.push(`/${lang}/our-sectors/categories`)}
-                    variant="ghost"
-                    className="mb-8"
+            <div className="mb-8">
+                <Link
+                    href={`/${lang}/our-sectors/categories`}
+                    className="inline-flex items-center gap-2 text-primary hover:underline transition text-base font-medium"
                 >
-                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    <ArrowLeft className="h-5 w-5" />
                     {dict?.backToCategories || "Back to categories"}
-                </Button>
-
+                </Link>
+            </div>
+            <div className="max-w-2xl mx-auto text-center mb-16">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-4">
                     {categoryName} {dict?.projects || "Projects"}
                 </h1>

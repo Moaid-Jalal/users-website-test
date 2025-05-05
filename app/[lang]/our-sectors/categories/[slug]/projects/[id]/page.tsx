@@ -12,7 +12,6 @@ import { getDictionary } from "@/lib/dictionary"
 import Link from "next/link"
 
 const ProjectPage = ({ params }: { params: { id: string } }) => {
-  const router = useRouter()
   const urlParams = useParams()
   const lang = urlParams?.lang as string || "en"
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -81,14 +80,17 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
 
   return (
     <div className="container mx-auto py-24 px-4">
-      <div className="max-w-4xl mx-auto">
-        <Link href={`/${lang}/our-sectors/categories/${project.category.slug}/projects`}>
-            <Button variant="ghost" className="mb-8">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                {dict?.back || "Back"}
-            </Button>
-        </Link>
+      <div className="mb-8">
+          <Link
+            href={`/${lang}/our-sectors/categories/${project.category.slug}/projects`}
+            className="inline-flex items-center gap-2 text-primary hover:underline transition text-base font-medium"
+          >
+              <ArrowLeft className="h-5 w-5" />
+              {dict?.back || "Back"}
+              </Link>
+      </div>
 
+      <div className="max-w-4xl mx-auto">
         <div className="aspect-[16/9] relative mb-8 group">
           <Image
             src={project.images[currentImageIndex].url}
