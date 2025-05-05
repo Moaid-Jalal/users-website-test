@@ -67,7 +67,7 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
       <div className="container mx-auto py-24 px-4 text-center">
         <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold">{dict?.projectNotFound || "Project Not Found"}</h2>
-            <Link href={`/${lang}/our-sectors/categories/${project.category.slug}/projects`}>
+            <Link href={`/${lang}/our-sectors/categories`}>
                 <Button variant="ghost" className="mt-4">
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     {dict?.back || "Back"}
