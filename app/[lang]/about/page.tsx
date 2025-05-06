@@ -55,7 +55,7 @@ export default function AboutPage() {
       <div className="max-w-2xl mx-auto text-center mb-16">
         <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-4">{dict?.aboutPageTitle || "About Us"}</h1>
         <p className="text-lg text-muted-foreground">
-          {dict?.aboutPageDesc || "Building excellence through innovation and dedication since 1998."}
+          {dict?.aboutPageDesc || "Building excellence through innovation and dedication since 2019."}
         </p>
       </div>
 

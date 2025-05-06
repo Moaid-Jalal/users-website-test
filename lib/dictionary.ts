@@ -128,7 +128,7 @@ export const dictionaries: Record<string, Dictionary> = {
     back: "Back",
     extraDescription: "Details",
     aboutPageTitle: "About Us",
-    aboutPageDesc: "Building excellence through innovation and dedication since 1998.",
+    aboutPageDesc: "Building excellence through innovation and dedication since 2019.",
     aboutStats: {
       "Years of Experience": "Years of Experience",
       "Completed Projects": "Completed Projects",
@@ -207,7 +207,7 @@ export const dictionaries: Record<string, Dictionary> = {
     back: "Geri",
     extraDescription: "Detaylar",
     aboutPageTitle: "Hakkımızda",
-    aboutPageDesc: "1998'den beri yenilik ve özveriyle mükemmellik inşa ediyoruz.",
+    aboutPageDesc: "2019'den beri yenilik ve özveriyle mükemmellik inşa ediyoruz.",
     aboutStats: {
       "Years of Experience": "Yılların Deneyimi",
       "Completed Projects": "Tamamlanan Projeler",
@@ -286,7 +286,7 @@ export const dictionaries: Record<string, Dictionary> = {
     back: "Retour",
     extraDescription: "Détails",
     aboutPageTitle: "À Propos",
-    aboutPageDesc: "L'excellence par l'innovation et le dévouement depuis 1998.",
+    aboutPageDesc: "L'excellence par l'innovation et le dévouement depuis 2019.",
     aboutStats: {
       "Years of Experience": "Années d'expérience",
       "Completed Projects": "Projets terminés",
