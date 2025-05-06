@@ -36,7 +36,21 @@ export default function CategoriesPage() {
   }
 
   if (error) {
-    return <div className="container mx-auto py-24 px-4 text-center text-red-500">Error loading categories.</div>
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center px-4">
+          <p className="text-red-500 text-lg font-semibold mb-4">
+            {error.message || dict?.somethingWrong || "Something went wrong, try again later"}
+          </p>
+          <Link href={`/${lang}`}>
+            <Button className="mt-2">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              {dict?.backToHome || "Back to Home"}
+            </Button>
+          </Link>
+        </div>
+      </div>
+    );
   }
 
   return (

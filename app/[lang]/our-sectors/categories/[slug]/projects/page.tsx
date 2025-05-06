@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, Building2 } from "lucide-react";
 import { Spinner } from "@/components/ui/spinner";
-import { useRouter, useParams } from "next/navigation"
+import { useParams } from "next/navigation"
 import { projectsService } from "@/app/service/projectsService";
 import Link from "next/link";
 import Image from 'next/image';
@@ -12,7 +12,6 @@ import { useEffect, useState } from "react";
 import { getDictionary } from "@/lib/dictionary";
 
 export default function CategoryProjectsPage({ params }: { params: { slug: string } }) {
-    const router = useRouter();
     const urlParams = useParams();
     const lang = urlParams?.lang as string || "en";
     const categoryName = params.slug;
@@ -43,38 +42,44 @@ export default function CategoryProjectsPage({ params }: { params: { slug: strin
         );
     }
 
+    if (error) {
+        return (
+            <div className="flex justify-center items-center min-h-screen">
+                <div className="text-center px-4">
+                    <div className="text-red-500 text-lg font-semibold mb-6">
+                        {error.message || dict?.somethingWrong || "Something went wrong, try again later"}
+                    </div>
+                    <Link href={`/${lang}/our-sectors/categories`}>
+                        <Button className="mt-2">
+                            <ArrowLeft className="mr-2 h-4 w-4" />
+                            {dict?.backToCategories || "Back to categories"}
+                        </Button>
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+    
+
     if (projects.length === 0) {
         return (
             <div className="container mx-auto py-24 px-4 text-center">
                 <div className="max-w-4xl mx-auto mt-20">
                     <h2 className="text-2xl font-bold">{dict?.noProjects || "No Projects Found"}</h2>
-                    <Button
-                        onClick={() => router.push(`/${lang}/our-sectors/categories`)}
-                        variant="ghost"
-                        className="mt-4"
-                    >
-                        <ArrowLeft className="mr-2 h-4 w-4" />
-                        {dict?.backToCategories || "Back to categories"}
-                    </Button>
+                    <Link href={`/${lang}/our-sectors/categories`}>
+                        <Button
+                            variant="ghost"
+                            className="mt-4"
+                        >
+                            <ArrowLeft className="mr-2 h-4 w-4" />
+                            {dict?.backToCategories || "Back to categories"}
+                        </Button>
+                    </Link>
                 </div>
             </div>
         );
     }
 
-    if (error) {
-        return (
-            <div className="flex  justify-center items-center h-full">
-                <div className="container mx-auto py-24 px-4 text-center">
-                    <div className="max-w-4xl mx-auto">
-                        <div className="text-red-500 font-semibold mb-4">{dict?.somethingWrong || "something went wrong, try again later"}</div>
-                        <Button onClick={() => router.push(`/${lang}`)}>
-                            {dict?.backToHome || "Go Back home"}
-                        </Button>
-                    </div>
-                </div>
-            </div>
-        );
-    }
 
     return (
         <div className="container mx-auto py-24 px-4">

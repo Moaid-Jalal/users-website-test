@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Spinner } from "@/components/ui/spinner"
 import { ArrowLeft, MapPin, Calendar, ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 import Image from "next/image"
-import { useRouter, useParams } from "next/navigation"
+import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import { getDictionary } from "@/lib/dictionary"
 import Link from "next/link"
@@ -49,17 +49,20 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
 
   if (error) {
     return (
-      <div className="container mx-auto py-24 px-4 text-center">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-red-500 font-semibold mb-4">{error}</div>
-            <Link href={`/${lang}/our-sectors/categories/${project.category.slug}/projects`}>
-                <Button>
-                    {dict?.back || "Go Back"}
-                </Button>
-            </Link>
+      <div className="flex items-center justify-center min-h-screen px-4">
+        <div className="max-w-xl text-center">
+          <p className="text-red-500 text-lg font-semibold mb-6">
+            {error.message || dict?.somethingWrong || "Something went wrong, try again later"}
+          </p>
+          <Link href={`/${lang}/our-sectors/categories`}>
+            <Button className="mt-2">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              {dict?.backToCategories || "Back to categories"}
+            </Button>
+          </Link>
         </div>
       </div>
-    )
+    );
   }
 
   if (!project) {

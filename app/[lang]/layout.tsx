@@ -7,21 +7,13 @@ import Footer from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { SUPPORTED_LANGUAGES } from '@/lib/i18n';
 
+
 export async function generateStaticParams() {
   return SUPPORTED_LANGUAGES.map((lang) => ({ lang }));
 }
 
 
 const inter = Inter({ subsets: ['latin'] });
-export const metadata: Metadata = {
-  title: 'KYT Group',
-  description: 'Professional construction and engineering services',
-  icons: {
-    icon: '/websitelogo.jpg',
-    shortcut: '/websitelogo.jpg',
-    apple: '/websitelogo.jpg',
-  },
-};
 
 export default async function LangLayout({
     children,

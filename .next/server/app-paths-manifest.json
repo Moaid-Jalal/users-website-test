@@ -1,8 +1,6 @@
 {
-  "/not-found": "app/not-found.js",
   "/[lang]/page": "app/[lang]/page.js",
-  "/[lang]/our-sectors/categories/page": "app/[lang]/our-sectors/categories/page.js",
+  "/[lang]/contact/page": "app/[lang]/contact/page.js",
   "/[lang]/our-sectors/categories/[slug]/page": "app/[lang]/our-sectors/categories/[slug]/page.js",
-  "/[lang]/our-sectors/categories/[slug]/projects/page": "app/[lang]/our-sectors/categories/[slug]/projects/page.js",
-  "/[lang]/our-sectors/categories/[slug]/projects/[id]/page": "app/[lang]/our-sectors/categories/[slug]/projects/[id]/page.js"
+  "/[lang]/our-sectors/categories/[slug]/projects/page": "app/[lang]/our-sectors/categories/[slug]/projects/page.js"
 }

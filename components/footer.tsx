@@ -59,9 +59,9 @@ const Footer = ({ currentLang } : FooterProps) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-lg font-semibold mb-4">{dict.contactUs}</h3>
-            <p>{data?.contact_info?.address || dict.address}</p>
-            <p>{dict.phone}: {data?.contact_info?.phone}</p>
-            <p>{dict.email}: {data?.contact_info?.email}</p>
+            <p>{dict.address} :{data?.contact_info?.Address}</p>
+            <p>{dict.phone} : {data?.contact_info?.Phone}</p>
+            <p>{dict.email} : {data?.contact_info?.Email}</p>
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">{dict.quickLinks}</h3>
