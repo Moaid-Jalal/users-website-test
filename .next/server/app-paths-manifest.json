@@ -1,6 +1,5 @@
 {
+  "/page": "app/page.js",
   "/[lang]/page": "app/[lang]/page.js",
-  "/[lang]/contact/page": "app/[lang]/contact/page.js",
-  "/[lang]/our-sectors/categories/[slug]/page": "app/[lang]/our-sectors/categories/[slug]/page.js",
-  "/[lang]/our-sectors/categories/[slug]/projects/page": "app/[lang]/our-sectors/categories/[slug]/projects/page.js"
+  "/[lang]/our-sectors/categories/page": "app/[lang]/our-sectors/categories/page.js"
 }
