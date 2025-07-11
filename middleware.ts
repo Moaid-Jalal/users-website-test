@@ -9,6 +9,10 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const pathLocale = pathname.split('/')[1];
 
+  if (pathname === '/') {
+    return NextResponse.redirect(new URL('/en', request.url));
+  }
+
   // إذا كانت اللغة غير موجودة في القائمة، إعادة التوجيه للغة الافتراضية (مثلاً 'en')
   if (pathLocale && !locales.includes(pathLocale)) {
     const url = request.nextUrl.clone();
